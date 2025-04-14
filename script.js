@@ -9,6 +9,7 @@ function showSlide(n) {
 }
 
 prevBtn.addEventListener('click', () => {
+  console.log('Нажата кнопка назад');
   slideIndex--;
   if (slideIndex < 0) {
     slideIndex = images.length - 1;
@@ -18,6 +19,7 @@ prevBtn.addEventListener('click', () => {
 
 nextBtn.addEventListener('click', () => {
   slideIndex++;
+  console.log('Нажата кнопка вперед');
   if (slideIndex >= images.length) {
     slideIndex = 0;
   }
