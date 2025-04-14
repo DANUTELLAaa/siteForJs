@@ -4,8 +4,8 @@ const prevBtn = document.querySelector('.prev-btn');
 const nextBtn = document.querySelector('.next-btn');
 
 function showSlide(n) {
-  slides.forEach(slide => slide.style.display = 'none');
-  slides[n].style.display = 'block';
+  slides.forEach(slide => slide.classList.remove('active'));
+  slides[n].classList.add('active');
 }
 
 prevBtn.addEventListener('click', () => {
