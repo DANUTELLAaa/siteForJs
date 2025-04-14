@@ -26,7 +26,15 @@ nextBtn.addEventListener('click', () => {
   showSlide(slideIndex);
 });
 
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('modal');
+  const addToCartBtn = document.querySelector('.add-to-cart-btn');
+  const closeBtn = document.querySelector('.close-btn');
+  const orderForm = document.getElementById('order-form');
+
   const specNames = document.querySelectorAll('.spec-name');
 
   specNames.forEach(name => {
@@ -35,14 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     tooltip.textContent = name.getAttribute('data-tooltip');
     name.appendChild(tooltip);
   });
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const modal = document.getElementById('modal');
-  const addToCartBtn = document.querySelector('.add-to-cart-btn');
-  const closeBtn = document.querySelector('.close-btn');
-  const orderForm = document.getElementById('order-form');
 
   // Открыть модальное окно при клике на кнопку
   addToCartBtn.addEventListener('click', () => {
@@ -80,9 +80,15 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.style.display = 'none';
     orderForm.reset();
   });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
+  const relatedCards = document.querySelectorAll('.related-product-card');
+  relatedCards.forEach(card => {
+    card.style.cursor = 'pointer'; // чтобы курсор менялся на руку
+    card.addEventListener('click', () => {
+      window.location.href = '404.html';
+    });
+  });
+
   const container = document.querySelector('.related-products-container');
   const leftBtn = document.querySelector('.left-btn');
   const rightBtn = document.querySelector('.right-btn');
@@ -104,16 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Ваш существующий код...
 
-  // Добавляем обработчики на карточки похожих товаров
-  const relatedCards = document.querySelectorAll('.related-product-card');
-  relatedCards.forEach(card => {
-    card.style.cursor = 'pointer'; // чтобы курсор менялся на руку
-    card.addEventListener('click', () => {
-      window.location.href = 'not-available.html';
-    });
-  });
-});
+
+
 
