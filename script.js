@@ -81,3 +81,26 @@ document.addEventListener('DOMContentLoaded', () => {
     orderForm.reset();
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.related-products-container');
+  const leftBtn = document.querySelector('.left-btn');
+  const rightBtn = document.querySelector('.right-btn');
+
+  const scrollAmount = 200; // Количество пикселей для прокрутки
+
+  leftBtn.addEventListener('click', () => {
+    container.scrollBy({
+      left: -scrollAmount,
+      behavior: 'smooth'
+    });
+  });
+
+  rightBtn.addEventListener('click', () => {
+    container.scrollBy({
+      left: scrollAmount,
+      behavior: 'smooth'
+    });
+  });
+});
+
