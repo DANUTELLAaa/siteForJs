@@ -42,4 +42,40 @@ body {
   .add-to-cart-btn:hover {
     background-color: #0056b3;
   }
+  .slider {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    margin: 40px auto;
+    overflow: hidden;
+  }
+  
+  .slides {
+    display: flex;
+    transition: transform 0.5s;
+  }
+  
+  .slides img {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .prev-btn {
+    left: 10px;
+  }
+  
+  .next-btn {
+    right: 10px;
+  }
   
