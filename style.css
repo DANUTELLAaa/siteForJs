@@ -9,34 +9,21 @@ body {
     background-color: #f4f4f4;
   }
   
-  .product-card {
+  ..product-card {
     max-width: 800px;
     margin: 40px auto;
   }
   
-  .slides-container {
+  .image-container {
     position: relative;
     width: 100%;
     height: 300px;
   }
   
-  .slides {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .slides img {
-    position: absolute;
-    top: 0;
-    left: 0;
+  #product-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: none;
-  }
-  
-  .slides img.active {
-    display: block;
   }
   
   .prev-btn, .next-btn {
