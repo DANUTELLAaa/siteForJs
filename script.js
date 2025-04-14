@@ -36,3 +36,48 @@ document.addEventListener('DOMContentLoaded', () => {
     name.appendChild(tooltip);
   });
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('modal');
+  const addToCartBtn = document.querySelector('.add-to-cart-btn');
+  const closeBtn = document.querySelector('.close-btn');
+  const orderForm = document.getElementById('order-form');
+
+  // Открыть модальное окно при клике на кнопку
+  addToCartBtn.addEventListener('click', () => {
+    modal.style.display = 'block';
+  });
+
+  // Закрыть модальное окно при клике на крестик
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  // Закрыть модальное окно при клике вне контента
+  window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+
+  // Обработка отправки формы
+  orderForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = orderForm.name.value.trim();
+    const phone = orderForm.phone.value.trim();
+
+    if (name === '' || phone === '') {
+      alert('Пожалуйста, заполните все поля.');
+      return;
+    }
+
+    // Здесь можно добавить отправку данных на сервер или другую логику
+    alert(`Спасибо, ${name}! Ваш заказ принят. Мы свяжемся с вами по номеру ${phone}.`);
+
+    // Закрыть модальное окно и очистить форму
+    modal.style.display = 'none';
+    orderForm.reset();
+  });
+});
