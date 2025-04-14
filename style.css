@@ -69,3 +69,38 @@ body {
     background-color: #0056b3;
   }
   
+  .product-specs ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .product-specs li {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .spec-name {
+    text-align: left;
+  }
+  
+  .spec-dots {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 12px;
+    color: #ccc;
+  }
+  
+  .spec-dots::after {
+    content: "\2026";
+  }
+  
+  .spec-value {
+    text-align: right;
+  }
+  .spec-dots::after {
+    content: "";
+    border-bottom: 1px dotted #ccc;
+    height: 1px;
+    margin: 0 auto;
+  }
