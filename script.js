@@ -25,3 +25,14 @@ nextBtn.addEventListener('click', () => {
   }
   showSlide(slideIndex);
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const specNames = document.querySelectorAll('.spec-name');
+
+  specNames.forEach(name => {
+    const tooltip = document.createElement('span');
+    tooltip.classList.add('tooltip');
+    tooltip.textContent = name.getAttribute('data-tooltip');
+    name.appendChild(tooltip);
+  });
+});

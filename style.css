@@ -82,6 +82,7 @@ body {
   
   .spec-name {
     text-align: left;
+    cursor: help; /* Стрелка с вопросом при наведении */
   }
   
   .spec-dots {
@@ -98,9 +99,27 @@ body {
   .spec-value {
     text-align: right;
   }
-  .spec-dots::after {
+  
+  .tooltip {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    visibility: hidden;
+    z-index: 1;
+  }
+  
+  .tooltip::after {
     content: "";
-    border-bottom: 1px dotted #ccc;
-    height: 1px;
-    margin: 0 auto;
+    position: absolute;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+  }
+  
+  .spec-name:hover .tooltip {
+    visibility: visible;
   }
