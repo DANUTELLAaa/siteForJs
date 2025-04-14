@@ -1,5 +1,5 @@
 let slideIndex = 0;
-const images = ['ataki1.png', 'ataki2.png', 'ataki3.png', 'ataki4.png'];
+const images = ['photo/ataki1.png', 'photo/ataki2.png', 'photo/ataki3.png', 'photo/ataki4.png'];
 const productImage = document.getElementById('product-image');
 const prevBtn = document.querySelector('.prev-btn');
 const nextBtn = document.querySelector('.next-btn');
@@ -100,6 +100,19 @@ document.addEventListener('DOMContentLoaded', () => {
     container.scrollBy({
       left: scrollAmount,
       behavior: 'smooth'
+    });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Ваш существующий код...
+
+  // Добавляем обработчики на карточки похожих товаров
+  const relatedCards = document.querySelectorAll('.related-product-card');
+  relatedCards.forEach(card => {
+    card.style.cursor = 'pointer'; // чтобы курсор менялся на руку
+    card.addEventListener('click', () => {
+      window.location.href = 'not-available.html';
     });
   });
 });
