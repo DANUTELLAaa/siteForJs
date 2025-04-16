@@ -1,41 +1,37 @@
-let slideIndex = 0;
-const images = ['photo/ataki1.png', 'photo/ataki2.png', 'photo/ataki3.png', 'photo/ataki4.png'];
-const productImage = document.getElementById('product-image');
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
+
 
 function showSlide(n) {
   productImage.src = images[n];
 }
-
-prevBtn.addEventListener('click', () => {
-  console.log('Нажата кнопка назад');
-  slideIndex--;
-  if (slideIndex < 0) {
-    slideIndex = images.length - 1;
-  }
-  showSlide(slideIndex);
-});
-
-nextBtn.addEventListener('click', () => {
-  slideIndex++;
-  console.log('Нажата кнопка вперед');
-  if (slideIndex >= images.length) {
-    slideIndex = 0;
-  }
-  showSlide(slideIndex);
-});
-
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('modal');
   const addToCartBtn = document.querySelector('.add-to-cart-btn');
   const closeBtn = document.querySelector('.close-btn');
   const orderForm = document.getElementById('order-form');
+  let slideIndex = 0;
+  const images = ['photo/ataki1.png', 'photo/ataki2.png', 'photo/ataki3.png', 'photo/ataki4.png'];
+  const productImage = document.getElementById('product-image');
+  const prevBtn = document.querySelector('.prev-btn');
+  const nextBtn = document.querySelector('.next-btn');
 
   const specNames = document.querySelectorAll('.spec-name');
+
+  prevBtn.addEventListener('click', () => {
+    slideIndex--;
+    if (slideIndex < 0) {
+      slideIndex = images.length - 1;
+    }
+    showSlide(slideIndex);
+  });
+  
+  nextBtn.addEventListener('click', () => {
+    slideIndex++;
+    if (slideIndex >= images.length) {
+      slideIndex = 0;
+    }
+    showSlide(slideIndex);
+  });
 
   specNames.forEach(name => {
     const tooltip = document.createElement('span');
@@ -44,24 +40,22 @@ document.addEventListener('DOMContentLoaded', () => {
     name.appendChild(tooltip);
   });
 
-  // Открыть модальное окно при клике на кнопку
+
   addToCartBtn.addEventListener('click', () => {
     modal.style.display = 'block';
   });
 
-  // Закрыть модальное окно при клике на крестик
+
   closeBtn.addEventListener('click', () => {
     modal.style.display = 'none';
   });
 
-  // Закрыть модальное окно при клике вне контента
   window.addEventListener('click', (event) => {
     if (event.target === modal) {
       modal.style.display = 'none';
     }
   });
 
-  // Обработка отправки формы
   orderForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -73,41 +67,40 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Здесь можно добавить отправку данных на сервер или другую логику
+  
     alert(`Спасибо, ${name}! Ваш заказ принят. Мы свяжемся с вами по номеру ${phone}.`);
 
-    // Закрыть модальное окно и очистить форму
+
     modal.style.display = 'none';
     orderForm.reset();
-  });
-
-  const relatedCards = document.querySelectorAll('.related-product-card');
-  relatedCards.forEach(card => {
-    card.style.cursor = 'pointer'; // чтобы курсор менялся на руку
-    card.addEventListener('click', () => {
-      window.location.href = '404.html';
     });
-  });
 
-  const container = document.querySelector('.related-products-container');
-  const leftBtn = document.querySelector('.left-btn');
-  const rightBtn = document.querySelector('.right-btn');
-
-  const scrollAmount = 200; // Количество пикселей для прокрутки
-
-  leftBtn.addEventListener('click', () => {
-    container.scrollBy({
-      left: -scrollAmount,
-      behavior: 'smooth'
+    const relatedCards = document.querySelectorAll('.related-product-card');
+    relatedCards.forEach(card => {
+      card.style.cursor = 'pointer'; 
+      card.addEventListener('click', () => {
+        window.location.href = '404.html';
+      });
     });
-  });
 
-  rightBtn.addEventListener('click', () => {
-    container.scrollBy({
-      left: scrollAmount,
-      behavior: 'smooth'
+    const container = document.querySelector('.related-products-container');
+    const leftBtn = document.querySelector('.left-btn');
+    const rightBtn = document.querySelector('.right-btn');
+    const scrollAmount = 200;
+
+    leftBtn.addEventListener('click', () => {
+      container.scrollBy({
+        left: -scrollAmount,
+        behavior: 'smooth'
+      });
     });
-  });
+
+    rightBtn.addEventListener('click', () => {
+      container.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    });
 });
 
 
